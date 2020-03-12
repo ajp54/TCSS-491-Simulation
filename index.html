@@ -1,0 +1,36 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cell Simulation</title>
+    <script type="text/javascript" src="./assetmanager.js"></script>
+    <script type="text/javascript" src="./gameengine.js"></script>
+    <script type="text/javascript" src="http://24.16.255.56:8888/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+</head>
+<body>
+    <p>
+    <canvas id="gameWorld" width="1200" height="700" style="border: 1px solid white; background: black"></canvas>
+    <button id="save" type="button">Save</button>
+    <button id="load" type="button">Load</button>
+    </p>
+    <p>
+        <h1><font size=14>How The Simulation Works:</font></h1>
+        <font size=5>
+        <b>Green Cells:</b> These are food for the non-red cells. A new green cell is generated every 0.5 seconds
+        and there is a small chance that a newly spawned green cell will mutate into a white cell.<br>
+        <b>Red Cells:</b> These are the preditor cells. They hunt the non-green cells for food but can die 
+        if they do not eat anything for long enough. if a red cell eats enough other cells it will 
+        produce a new red cell.<br>
+        <b>White Cells:</b> These cells eat the green cells and run from the red cells. If a white cell eats 
+        enough food, it will produce a new cell. Anytime a new cell is produced, it has a small chance 
+        of mutating into a cell with slightly different attributes.<br>
+        <b>Other Colored Cells:</b> a cell that is any other color is one that has mutated from a white cell. The
+        attributes that change include the cell's speed, color, size, range at which is can see other cells,
+        and number of children it reproduces at a time.
+
+        </font>
+    </p>
+</body>
+</html>
